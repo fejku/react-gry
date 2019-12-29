@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Board.css";
 
 const Board = () => {
-  return <div className="board" onClick={() => {}}></div>;
+  const [info, setInfo] = useState("Naciśnij aby rozpocząć grę.");
+
+  return (
+    <div className="board" onClick={() => {}}>
+      {info}
+    </div>
+  );
 };
 
 export default Board;
