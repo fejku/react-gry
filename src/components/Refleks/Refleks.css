@@ -1,19 +1,11 @@
-html,
-body,
-#root,
-.App {
+.refleks {
   height: 100%;
-}
-
-.App {
+  text-align: center;
   display: flex;
   flex-direction: column;
 }
 
-#menu {
+.info,
+.score {
   flex: 1;
-}
-
-#container {
-  flex: 9;
 }
