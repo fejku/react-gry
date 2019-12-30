@@ -1,11 +1,21 @@
 .refleks {
-  height: 100%;
-  text-align: center;
+  height: calc(100% - 32px);
+  border: 1px solid black;
+  margin: 15px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.info,
-.score {
+.refleks>div {
   flex: 1;
+}
+
+.white {
+  background-color: white;
+}
+
+.red {
+  background-color: red;
 }
