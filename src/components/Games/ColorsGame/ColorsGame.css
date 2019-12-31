@@ -1,0 +1,18 @@
+.qwe {
+  height: 300px;
+  width: 300px;
+}
+
+.progressbar{ 
+  height: 20px;
+  background-color: red;
+}
+
+.tlo {
+  height: 100%;
+  background-color: green;
+}
+
+.napis {
+  color: black;
+}

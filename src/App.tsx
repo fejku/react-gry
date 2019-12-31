@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import "./App.css";
-import Refleks from "./components/Refleks/Refleks";
+import Refleks from "./components/Games/Refleks/Refleks";
+import ColorsGame from "./components/Games/ColorsGame/ColorsGame";
 import Main from "./components/Main/Main";
 
 const App: React.FC = () => {
-  const [aktualnaStrona, setAktualnaStrona] = useState("refleks");
+  const [aktualnaStrona, setAktualnaStrona] = useState("colorsGame");
 
   const getKontroler = () => {
     switch (aktualnaStrona) {
       case "refleks":
         return <Refleks />;
+      case "colorsGame":
+        return <ColorsGame />;        
       default:
         return <Main />;
     }
