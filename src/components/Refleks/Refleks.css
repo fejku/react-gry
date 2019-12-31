@@ -1,7 +1,7 @@
 .refleks {
   font-size: 3em;
-  height: calc(100% - 2em - 6px);
-  border: 3px solid black;
+  height: calc(100% - 2em - 14px);
+  border: 7px solid black;
   border-radius: 2em;
   margin: 1em;
   display: flex;
