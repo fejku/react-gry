@@ -1,0 +1,73 @@
+.gra {
+  height: 100%;
+}
+
+.wynik {
+  height: 20%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressbar {
+  height: 5%;
+  display: flex;
+}
+
+.progressbar_aktywny {
+  height: 100%;
+  flex: 20;
+
+  background-color: green;
+  border-bottom-left-radius: 1em;
+  border-top-left-radius: 1em;
+  margin-left: 1em;
+}
+
+.progressbar_nieaktywny {
+  height: 100%;
+  flex: 80;
+
+  background-color: rgb(179, 179, 179);
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+  margin-right: 1em;
+}
+
+.napis {
+  font-size: 3em;
+  height: 45%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.przyciski {
+  height: 25%;
+  display: flex;
+}
+
+.button {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 7px solid black;
+  box-sizing: border-box;
+}
+
+.button_lewy {
+  margin-left: 2%;
+  border-bottom-left-radius: 1em;
+  border-top-left-radius: 1em;
+}
+
+.button_prawy {
+  margin-right: 2%;
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+}

@@ -1,18 +1,7 @@
-.qwe {
-  height: 300px;
-  width: 300px;
-}
-
-.progressbar{ 
-  height: 20px;
-  background-color: red;
-}
-
-.tlo {
-  height: 100%;
-  background-color: green;
-}
-
-.napis {
-  color: black;
+.colors_game {
+  font-size: 2em;
+  border: 7px solid black;
+  height: calc(100% - 2em - 14px);
+  margin: 1em;
+  border-radius: 2em;
 }

@@ -12,7 +12,7 @@ const App: React.FC = () => {
       case "refleks":
         return <Refleks />;
       case "colorsGame":
-        return <ColorsGame />;        
+        return <ColorsGame />;
       default:
         return <Main />;
     }
@@ -37,7 +37,14 @@ const App: React.FC = () => {
             handleMenuClick("refleks");
           }}
         >
-          Refleks
+          +Refleks
+        </div>
+        <div
+          onClick={() => {
+            handleMenuClick("colorsGame");
+          }}
+        >
+          Color Game
         </div>
         <div>
           <a href="http://www.brainmetrix.com/brain-fitness/">Brain fitness</a>
@@ -47,11 +54,7 @@ const App: React.FC = () => {
             Cognitive Training
           </a>
         </div>
-        <div>
-          <a href="https://www.google.com/search?q=color+game+brain+teaser&sxsrf=ACYBGNTKISEpUS94VXWETFJfoVj3_3PEVQ:1577644943374&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjdvbmzwdvmAhWwlYsKHbuxCjsQ_AUoAXoECAsQAw&biw=1920&bih=937#imgrc=BzMOks_bRruBwM:">
-            Color Game
-          </a>
-        </div>
+
         <div>
           <a href="http://www.brainmetrix.com/concentration-game/">
             Concentration Game
