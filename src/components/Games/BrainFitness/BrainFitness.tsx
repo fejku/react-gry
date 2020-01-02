@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 import Init from "./Init/Init";
 
 const BrainFitness = () => {
   return (
-    <div className="brain_fitness" style={{height: "100%"}}>
-      BrainFitness
+    <div className="brain_fitness" style={{ height: "100%" }}>
       <Init />
     </div>
-  )
-}
+  );
+};
 
-export default BrainFitness
+export default BrainFitness;
