@@ -10,15 +10,15 @@ body,
   flex-direction: column;
 }
 
-#menu {
+.menu {
   flex: 1;
   display: flex;
 }
 
-#menu>div {
+.menu a {
   margin: 2px 5px;
 }
 
-#container {
+.container {
   flex: 9;
 }

@@ -2,79 +2,68 @@ import React, { useState } from "react";
 import "./App.css";
 import Refleks from "./components/Games/Refleks/Refleks";
 import ColorsGame from "./components/Games/ColorsGame/ColorsGame";
-import Main from "./components/Main/Main";
+import Home from "./components/Home/Home";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const App: React.FC = () => {
-  const [aktualnaStrona, setAktualnaStrona] = useState("colorsGame");
-
-  const getKontroler = () => {
-    switch (aktualnaStrona) {
-      case "refleks":
-        return <Refleks />;
-      case "colorsGame":
-        return <ColorsGame />;
-      default:
-        return <Main />;
-    }
-  };
-
-  const handleMenuClick = (a: string) => {
-    setAktualnaStrona(a);
-  };
+  const strony = [
+    {sciezka: "/", tekst: "Home", komponent: <Home />},
+    {sciezka: "/refleks", tekst: "+Refleks", komponent: <Refleks />},
+    {sciezka: "/color_game", tekst: "+Colors Game", komponent: <ColorsGame />},
+    {sciezka: "/brain_fitness", tekst: "Brain fitness", komponent: <ColorsGame />},
+  ];
 
   return (
-    <div className="App">
-      <div id="menu">
-        <div
-          onClick={() => {
-            handleMenuClick("");
-          }}
-        >
-          Main
-        </div>
-        <div
-          onClick={() => {
-            handleMenuClick("refleks");
-          }}
-        >
-          +Refleks
-        </div>
-        <div
-          onClick={() => {
-            handleMenuClick("colorsGame");
-          }}
-        >
-          Color Game
-        </div>
-        <div>
-          <a href="http://www.brainmetrix.com/brain-fitness/">Brain fitness</a>
-        </div>
-        <div>
-          <a href="http://www.brainmetrix.com/cognitive-training/">
-            Cognitive Training
-          </a>
+    <Router>
+      <div className="App">
+        <div className="menu">
+          {strony.map(strona => <Link to={strona.sciezka}>{strona.tekst}</Link>)}
         </div>
 
-        <div>
-          <a href="http://www.brainmetrix.com/concentration-game/">
-            Concentration Game
-          </a>
+        <div className="container">
+          <Switch>
+            {strony.reverse().map(strona => <Route path={strona.sciezka}>{strona.komponent}</Route>)}
+          </Switch>
         </div>
-        <div>
-          <a href="http://www.brainmetrix.com/memory-game/">Memory Game</a>
-        </div>
-        <div>
-          <a href="http://www.brainmetrix.com/memory-test/">Memory Test</a>
-        </div>
-        <div>
-          <a href="http://www.brainmetrix.com/tower-of-hanoi/">
-            Tower of Hanoi
-          </a>
-        </div>
-        <div>Reversi</div>
-      </div>
-      <div id="container">{getKontroler()}</div>
-    </div>
+      </div>    
+    </Router>
+
+
+
+    //     <div>
+    //       <a href="http://www.brainmetrix.com/brain-fitness/">Brain fitness</a>
+    //     </div>
+    //     <div>
+    //       <a href="http://www.brainmetrix.com/cognitive-training/">
+    //         Cognitive Training
+    //       </a>
+    //     </div>
+
+    //     <div>
+    //       <a href="http://www.brainmetrix.com/concentration-game/">
+    //         Concentration Game
+    //       </a>
+    //     </div>
+    //     <div>
+    //       <a href="http://www.brainmetrix.com/memory-game/">Memory Game</a>
+    //     </div>
+    //     <div>
+    //       <a href="http://www.brainmetrix.com/memory-test/">Memory Test</a>
+    //     </div>
+    //     <div>
+    //       <a href="http://www.brainmetrix.com/tower-of-hanoi/">
+    //         Tower of Hanoi
+    //       </a>
+    //     </div>
+    //     <div>Reversi</div>
+    //   </div>
+    //   <div id="container">{getKontroler()}</div>
+    // </div>
   );
 };
 
