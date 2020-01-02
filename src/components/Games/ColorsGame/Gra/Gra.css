@@ -3,6 +3,7 @@
 }
 
 .wynik {
+  font-size: 4rem;
   height: 20%;
   text-align: center;
   display: flex;
@@ -20,9 +21,9 @@
   flex: 20;
 
   background-color: green;
-  border-bottom-left-radius: 1em;
-  border-top-left-radius: 1em;
-  margin-left: 1em;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
+  margin-left: 2rem;
 }
 
 .progressbar_nieaktywny {
@@ -30,14 +31,14 @@
   flex: 80;
 
   background-color: rgb(179, 179, 179);
-  border-bottom-right-radius: 1em;
-  border-top-right-radius: 1em;
-  margin-right: 1em;
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+  margin-right: 2rem;
 }
 
 .napis {
-  font-size: 3em;
-  height: 45%;
+  font-size: 6rem;
+  height: 50%;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -46,8 +47,9 @@
 }
 
 .przyciski {
-  height: 25%;
+  height: 20%;
   display: flex;
+  font-size: 4rem;
 }
 
 .button {
@@ -62,12 +64,12 @@
 
 .button_lewy {
   margin-left: 2%;
-  border-bottom-left-radius: 1em;
-  border-top-left-radius: 1em;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
 }
 
 .button_prawy {
   margin-right: 2%;
-  border-bottom-right-radius: 1em;
-  border-top-right-radius: 1em;
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
 }

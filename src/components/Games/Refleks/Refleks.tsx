@@ -7,6 +7,7 @@ const Refleks = () => {
     INIT = 0,
     READY_TO_CLICK = 1,
     WAITING = 2,
+    RESULT = 3,
   }
 
   const [score, setScore] = useState(0);
@@ -21,35 +22,25 @@ const Refleks = () => {
                (85 + 10 * Math.random()) + '%)'
   }
 
-  const dajStatus = (state: Status): string => {
+  const dajWynik = (score: number): string => {
+    if (score === -1) {
+      return "Bądź bardziej cierpliwy!!!";
+    } 
+    
+    return `Twój wynik: ${(score / 1000).toPrecision(4)} sek.`;
+  }
+
+  const dajStatusWynik = (state: Status, score: number): string => {
     switch (state) {
       case Status.INIT: 
-        return "Naciśnij aby rozpocząć grę."; 
+        return "START"; 
       case Status.WAITING:
         return "CZEKAJ";
       case Status.READY_TO_CLICK:
         return "NACIŚNIJ!!!";
+      case Status.RESULT:
+        return dajWynik(score);
     }
-  }
-
-  const dajWynik = (score: number): string => {
-    if (score === 0) {
-      return "";
-    }
-
-    let result = "\n\n";
-
-    if (score === -1) {
-      result += "Bądź bardziej cierpliwy!!!";
-    } else if (score > 0) {
-      result += `Twój wynik: ${(score / 1000).toPrecision(4)} sek.`;
-    }
-
-    return result;
-  }
-
-  const dajStatusWynik = (state: Status, score: number): string => {
-    return dajStatus(state) + dajWynik(score);
   }
 
   const dajTimeout = (offsetTime: number): NodeJS.Timeout => {
@@ -71,14 +62,14 @@ const Refleks = () => {
 
   const clickedToEarly = (timer: NodeJS.Timeout | null): void => {
     if (timer) {
-      setState(Status.INIT);
+      setState(Status.RESULT);
       setScore(-1);
       clearTimeout(timer);     
     }
   }
 
   const secondClick = (): void => {
-    setState(Status.INIT);
+    setState(Status.RESULT);
     const actualTime = new Date().getTime();
     const result = actualTime - time;
     setScore(result);    
@@ -95,6 +86,9 @@ const Refleks = () => {
       case Status.READY_TO_CLICK:        
         secondClick();
         break;
+        case Status.RESULT:        
+        setState(Status.INIT);
+        break;        
     }
   }
 

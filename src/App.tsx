@@ -3,6 +3,7 @@ import "./App.css";
 import Refleks from "./components/Games/Refleks/Refleks";
 import ColorsGame from "./components/Games/ColorsGame/ColorsGame";
 import Home from "./components/Home/Home";
+import BrainFitness from "./components/Games/BrainFitness/BrainFitness";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +16,7 @@ const App: React.FC = () => {
     {sciezka: "/", tekst: "Home", komponent: <Home />},
     {sciezka: "/refleks", tekst: "+Refleks", komponent: <Refleks />},
     {sciezka: "/color_game", tekst: "+Colors Game", komponent: <ColorsGame />},
-    {sciezka: "/brain_fitness", tekst: "Brain fitness", komponent: <ColorsGame />},
+    {sciezka: "/brain_fitness", tekst: "Brain fitness", komponent: <BrainFitness />},
   ];
 
   return (
