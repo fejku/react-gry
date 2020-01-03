@@ -54,7 +54,6 @@ const Refleks = () => {
   const initializeAndSetTimeout = (): void => {
     setState(Status.WAITING);
     setScore(0);    
-    setColor("white");
 
     const offsetTime = Math.random() * 2000 + 1000;
     setTimer(dajTimeout(offsetTime));
@@ -64,7 +63,7 @@ const Refleks = () => {
     if (timer) {
       setState(Status.RESULT);
       setScore(-1);
-      clearTimeout(timer);     
+      clearTimeout(timer);
     }
   }
 
@@ -86,7 +85,8 @@ const Refleks = () => {
       case Status.READY_TO_CLICK:        
         secondClick();
         break;
-        case Status.RESULT:        
+      case Status.RESULT:        
+        setColor("white");
         setState(Status.INIT);
         break;        
     }

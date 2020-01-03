@@ -31,28 +31,19 @@ const Gra: React.FC<IGraProps> = ({
   const [textColorIndex, setTextColorIndex] = useState(0);
   const [fontColorIndex, setFontColorIndex] = useState(0);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
-  const [counter, setCounter] = useState(0);
-
-  const ustawOdliczanie = () => {
-    const interval = setInterval(() => {
-      setCounter(counter => {
-        if (counter === 9) {
-          clearInterval(interval);
-          setStatus(StatusGry.Podsumowanie);
-        }
-        return counter + 1;
-      });
-    }, 200);
-
-    setTimer(interval);
-  };
-
+  
   useEffect(() => {
     ustawOdliczanie();
-    // return () => {
-    //   cleanup;
-    // };
   }, []);
+
+  const ustawOdliczanie = () => {
+    const timeout = setTimeout(() => {
+      clearTimeout(timeout);
+      setStatus(StatusGry.Podsumowanie);
+    }, 2000)
+
+    setTimer(timeout);
+  };
 
   const wylosujIndexKoloru = (kolory: Color[]): number => {
     return Math.floor(Math.random() * kolory.length);
@@ -78,9 +69,8 @@ const Gra: React.FC<IGraProps> = ({
     const czyTakieSameKolory = textColorIndex === fontColorIndex;
     if (value === czyTakieSameKolory) {
       if (timer) {
-        clearInterval(timer);
+        clearTimeout(timer);
       }
-      setCounter(0);
       noweKolory();
       setWynik(wynik => wynik + 1);
       ustawOdliczanie();
@@ -94,14 +84,7 @@ const Gra: React.FC<IGraProps> = ({
     <div className="gra">
       <div className="wynik">Wynik: {wynik}</div>
       <div className="progressbar">
-        <div
-          className="progressbar_aktywny"
-          style={{ flex: counter * 10 }}
-        ></div>
-        <div
-          className="progressbar_nieaktywny"
-          style={{ flex: 100 - counter * 10 }}
-        ></div>
+        <div key={Math.random()} className="progressbar_active" />
       </div>
       <div className="napis" style={{ color: colors[fontColorIndex].color }}>
         {colors[textColorIndex].name}

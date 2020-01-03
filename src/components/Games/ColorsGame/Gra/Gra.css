@@ -13,27 +13,23 @@
 
 .progressbar {
   height: 5%;
-  display: flex;
-}
-
-.progressbar_aktywny {
-  height: 100%;
-  flex: 20;
-
-  background-color: green;
-  border-bottom-left-radius: 2rem;
-  border-top-left-radius: 2rem;
-  margin-left: 2rem;
-}
-
-.progressbar_nieaktywny {
-  height: 100%;
-  flex: 80;
-
   background-color: rgb(179, 179, 179);
-  border-bottom-right-radius: 2rem;
-  border-top-right-radius: 2rem;
-  margin-right: 2rem;
+  border-radius: 2rem;
+  margin: 0 2rem;
+}
+
+.progressbar_active {
+  height: 100%;
+  background-color: green;
+  border-radius: 2rem;
+  animation-name: progressbar_progress;
+  animation-duration: 1.9s;
+  animation-timing-function: linear;  
+}
+
+@keyframes progressbar_progress {
+  from {width: 0}
+  to {width: 100%}
 }
 
 .napis {
